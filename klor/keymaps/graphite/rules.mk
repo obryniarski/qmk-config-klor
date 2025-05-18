@@ -1,5 +1,7 @@
+# my right half doesn't work for some reason :(
 OLED_ENABLE = no
 OLED_DRIVER = ssd1306
+OLED_TRANSPORT = i2c
 ENCODER_ENABLE = yes
 EXTRAKEY_ENABLE = yes
 AUDIO_ENABLE = no

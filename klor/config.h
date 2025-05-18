@@ -34,22 +34,26 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // │ s p l i t   c o m m u n i c a t i o n           │
 // └─────────────────────────────────────────────────┘
 
-#define USE_SERIAL
-#define SOFT_SERIAL_PIN D2
-#define SERIAL_USE_MULTI_TRANSACTION
+// #define USE_SERIAL
+// #define SOFT_SERIAL_PIN D2
+// #define SERIAL_USE_MULTI_TRANSACTION
 //#define SPLIT_LAYER_STATE_ENABLE
 //#define SPLIT_USB_DETECT
+#define SPLIT_USB_DETECT
+#define SPLIT_USB_TIMEOUT_POLL 10
+#define SPLIT_WATCHDOG_ENABLE
+#define SPLIT_WATCHDOG_TIMEOUT 3000
 
 
 // ┌─────────────────────────────────────────────────┐
 // │ e n c o d e r s                                 │
 // └─────────────────────────────────────────────────┘
 
-#define ENCODERS_PAD_A       { F5 }
-#define ENCODERS_PAD_B       { F4 }
-#define ENCODERS_PAD_A_RIGHT { F4 }
-#define ENCODERS_PAD_B_RIGHT { F5 }
-#define ENCODER_RESOLUTIONS  { 2, 1 }
+// #define ENCODERS_PAD_A       { F5 }
+// #define ENCODERS_PAD_B       { F4 }
+// #define ENCODERS_PAD_A_RIGHT { F4 }
+// #define ENCODERS_PAD_B_RIGHT { F5 }
+// #define ENCODER_RESOLUTIONS  { 2, 1 }
 
 
 // ┌─────────────────────────────────────────────────┐

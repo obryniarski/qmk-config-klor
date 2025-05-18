@@ -128,7 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  │  CTRL   │  LOWER  │  SPACE  │   ALT   ││  BSPACE │  ENTER  │  RAISE  │  SUPER  │
                                  └─────────┴─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┴─────────┘ */
 
-   [_GRAPHITE] = LAYOUT_polydactyl(
+   [_GRAPHITE] = LAYOUT(
  //╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷
               KC_B,     KC_L,     KC_D,     KC_W,     KC_Z,                          KC_UNDS,  KC_F,    KC_O,     KC_U,     KC_J,
     KC_TAB,   KC_N,     KC_R,     KC_T,     KC_S,     KC_G,                          KC_Y,     KC_H,     KC_A,     KC_E,     KC_I,  KC_COMM,
@@ -151,7 +151,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  │  CTRL   │  LOWER  │  SPACE  │   ALT   ││ CMD/WIN │  ENTER  │  RAISE  │ BSPACE  │
                                  └─────────┴─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┴─────────┘ */
 
-   [_QWERTY] = LAYOUT_polydactyl(
+   [_QWERTY] = LAYOUT(
  //╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷
               KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                          KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,
     KC_TAB,   KC_A,     KC_S,     KC_D,     KC_F,     KC_G,                          KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
@@ -175,7 +175,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                  │    ▼    │    ▼    │    ▼    │    ▼    ││    ▼    │    ▼    │ ADJUST  │    ▼    │
                                  └─────────┴─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┴─────────┘ */
 
-   [_LOWER] = LAYOUT_polydactyl(
+   [_LOWER] = LAYOUT(
  //╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷
               XXXXXXX,  KC_6,     KC_5,     KC_4,     XXXXXXX,                        KC_PIPE,  KC_END,  KC_PSCR,  XXXXXXX,  XXXXXXX,
     KC_ESC,   KC_ASTR,  KC_3,     KC_2,     KC_1,     KC_0,                      KC_HOME,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RIGHT,  XXXXXXX,
@@ -191,17 +191,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              ┌─────────┬─────────┬─────────┬─────────┬─────────┐                    ┌─────────┬─────────┬─────────┬─────────┬─────────┐
              │         │    \    │    %    │    $    │         │ ╭╮╭╮╭╮╭╮╭╮╭╮╭╮╭╮╭╮ │         │    ^    │    {    │    }    │         │
    ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ │╰╯╰╯╰╯╰╯╰╯╰╯╰╯╰╯│ ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
-   │         │    *    │    (    │    )    │    ;    │         ├─╯                ╰─┤    #    │    :    │    [    │    ]    │         │         │
+   │         │    *    │    (    │    )    │    ;    │         ├─╯                ╰─┤    #    │    :    │    [    │    ]    │   F13   │         │
    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤╭────────╮╭────────╮├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
    │         │         │    `    │    @    │    &    │         ││  MUTE  ││PLY/PSE ││         │    -    │    <    │    >    │         │         │
    └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┼╰────────╯╰────────╯┼─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
                                  │    ▼    │ ADJUST  │    ▼    │    ▼    ││    ▼    │    ▼    │    ▼    │    ▼    │
                                  └─────────┴─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┴─────────┘ */
 
-   [_RAISE] = LAYOUT_polydactyl(
+   [_RAISE] = LAYOUT(
  //╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷
               XXXXXXX,  KC_BSLS,  KC_PERC,  KC_DLR,   XXXXXXX,                       XXXXXXX,  KC_CIRC,  KC_LCBR,  KC_RCBR,  XXXXXXX,
-    XXXXXXX,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_SCLN,  XXXXXXX,                       KC_HASH,  KC_COLON,  KC_LBRC,  KC_RBRC,  XXXXXXX,  XXXXXXX,
+    XXXXXXX,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_SCLN,  XXXXXXX,                       KC_HASH,  KC_COLON, KC_LBRC,  KC_RBRC,  KC_F14,   XXXXXXX,
     XXXXXXX,  XXXXXXX,  KC_GRV,   KC_AT,    KC_AMPR,  XXXXXXX,  KC_MUTE,   KC_MPLY,  XXXXXXX,  KC_MINS,  KC_LABK,  KC_RABK,  XXXXXXX,  XXXXXXX,
                                   _______,  _______,  _______,  _______,   _______,  _______,  _______,  _______
  ),
@@ -212,20 +212,20 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    │ a d j u s t                                               │
    └───────────────────────────────────────────────────────────┘
              ┌─────────┬─────────┬─────────┬─────────┬─────────┐                    ┌─────────┬─────────┬─────────┬─────────┬─────────┐
-             │ AUDIO(x)│HAPTIC(x)│ RGB HUE │ RGB MOD │         │ ╭╮╭╮╭╮╭╮╭╮╭╮╭╮╭╮╭╮ │         │   F7    │   F8    │   F9    │   F14   │
+             │ AUDIO(x)│HAPTIC(x)│ RGB HUE │ RGB MOD │         │ ╭╮╭╮╭╮╭╮╭╮╭╮╭╮╭╮╭╮ │         │   F7    │   F8    │   F9    │         │
    ┌─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤ │╰╯╰╯╰╯╰╯╰╯╰╯╰╯╰╯│ ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┐
-   │  RESET  │ DEBUG   │GRAPHITE │ RGB SAT │         │         ├─╯                ╰─┤         │   F4    │   F5    │   F6    │   F12   │   F13   │
+   │  RESET  │ DEBUG   │GRAPHITE │ RGB SAT │         │         ├─╯                ╰─┤         │   F4    │   F5    │   F6    │   F12   │         │
    ├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤╭────────╮╭────────╮├─────────┼─────────┼─────────┼─────────┼─────────┼─────────┤
    │  MAKE   │ OS SWAP │ QWERTY  │ RGB VAL │         │         ││  MUTE  ││PLY/PSE ││         │   F1    │   F2    │   F3    │   F10   │   F11   │
    └─────────┴─────────┴─────────┼─────────┼─────────┼─────────┼╰────────╯╰────────╯┼─────────┼─────────┼─────────┼─────────┴─────────┴─────────┘
                                  │    ▼    │    ▼    │    ▼    │    ▼    ││    ▼    │    ▼    │    ▼    │    ▼    │
                                  └─────────┴─────────┴─────────┴─────────┘└─────────┴─────────┴─────────┴─────────┘ */
 
-   [_ADJUST] = LAYOUT_polydactyl(
+   [_ADJUST] = LAYOUT(
  //╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷
-              XXXXXXX,   XXXXXXX,  RGB_HUI,  RGB_MOD,  XXXXXXX,                       XXXXXXX,  KC_F7,    KC_F8,    KC_F9,    KC_F14,
-    QK_BOOT,  DB_TOGG,  GRAPHITE,   RGB_SAI,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  KC_F4,    KC_F5,    KC_F6,    KC_F12,   KC_F13,
-    MAKE_H,   OS_SWAP,  QWERTY,  RGB_VAI,  XXXXXXX,  XXXXXXX,  KC_MUTE,   KC_MPLY,  XXXXXXX,  KC_F1,    KC_F2,    KC_F3,    KC_F10,   KC_F11,
+              XXXXXXX,  XXXXXXX,  RGB_HUI,  RGB_MOD,  XXXXXXX,                       XXXXXXX,  KC_F7,    KC_F8,    KC_F9,    XXXXXXX,
+    QK_BOOT,  DB_TOGG,  GRAPHITE, RGB_SAI,  XXXXXXX,  XXXXXXX,                       XXXXXXX,  KC_F4,    KC_F5,    KC_F6,    KC_F12,   XXXXXXX,
+    MAKE_H,   OS_SWAP,  QWERTY,   RGB_VAI,  XXXXXXX,  XXXXXXX,  KC_MUTE,   KC_MPLY,  XXXXXXX,  KC_F1,    KC_F2,    KC_F3,    KC_F10,   KC_F11,
                                   _______,  _______,  _______,  _______,   _______,  _______,  _______,  _______
  )
 
