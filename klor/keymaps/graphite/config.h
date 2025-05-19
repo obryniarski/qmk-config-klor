@@ -9,23 +9,34 @@ for more options.
 // #define MASTER_RIGHT
 
 //#define TAPPING_TERM 170
-#define TAPPING_TERM 170
+// #define TAPPING_TERM 50
 
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
-#define TAPPING_FORCE_HOLD
+// #define TAPPING_FORCE_HOLD
 
 // Auto Shift
-#define NO_AUTO_SHIFT_ALPHA
-#define AUTO_SHIFT_TIMEOUT TAPPING_TERM
-#define AUTO_SHIFT_NO_SETUP
+// #define NO_AUTO_SHIFT_ALPHA
+// #define AUTO_SHIFT_TIMEOUT TAPPING_TERM
+// #define AUTO_SHIFT_NO_SETUP
 
-#undef LOCKING_SUPPORT_ENABLE
-#undef LOCKING_RESYNC_ENABLE
-#define NO_ACTION_ONESHOT
+// #undef LOCKING_SUPPORT_ENABLE
+// #undef LOCKING_RESYNC_ENABLE
+// #define NO_ACTION_ONESHOT
 //#define NO_ACTION_TAPPING
 //#define NO_MUSIC_MODE
 
-#define COMBO_COUNT 1
+// combo settings
+#define COMBO_COUNT 2
+#define COMBO_TERM 40
+
+// mouse TURBOOOOO haha
+#define MOUSE_TURBO_CLICK_PERIOD 50
+
+// caps word uses both shifts to start
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+
+
+
 
 
 // RGB matrix support

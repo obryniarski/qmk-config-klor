@@ -20,7 +20,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "klor.h"
-#include "features/custom_shift_keys.h"
+// #include "features/custom_shift_keys.h"
 #ifdef HAPTIC_ENABLE
 #include "drivers/haptic/DRV2605L.h"
 #endif //HAPTIC ENABLE
@@ -65,17 +65,17 @@ enum custom_keycodes {
 
 // LEFT HAND HOME ROW MODS ├───────────────────────────────────┐
 
-#define GUI_A MT(MOD_LGUI, KC_A)
-#define ALT_R MT(MOD_LALT, KC_R)
-#define CTL_S MT(MOD_LCTL, KC_S)
-#define SHT_T MT(MOD_LSFT, KC_T)
+// #define GUI_A MT(MOD_LGUI, KC_A)
+// #define ALT_R MT(MOD_LALT, KC_R)
+// #define CTL_S MT(MOD_LCTL, KC_S)
+// #define SHT_T MT(MOD_LSFT, KC_T)
 
 // RIGHT HAND HOME ROW MODS ├───────────────────────────────────┐
 
-#define SHT_N MT(MOD_RSFT, KC_N)
-#define CTL_E MT(MOD_LCTL, KC_E)
-#define ALT_I MT(MOD_LALT, KC_I)
-#define GUI_O MT(MOD_LGUI, KC_O)
+// #define SHT_N MT(MOD_RSFT, KC_N)
+// #define CTL_E MT(MOD_LCTL, KC_E)
+// #define ALT_I MT(MOD_LALT, KC_I)
+// #define GUI_O MT(MOD_LGUI, KC_O)
 
 
 // ┌───────────────────────────────────────────────────────────┐
@@ -101,9 +101,117 @@ const custom_shift_key_t custom_shift_keys[] = {
     {KC_MINUS, KC_QUOTE},
     {KC_SLASH, KC_COLON},
     {KC_COMMA, KC_DOUBLE_QUOTE},
-    {KC_DOT, KC_QUESTION},
+    {KC_DOT, KC_QUES},
 };
-uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
+// uint8_t NUM_CUSTOM_SHIFT_KEYS = sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
+
+
+// ┌───────────────────────────────────────────────────────────┐
+// │ d e f i n e   c u s t o m   k e y c o d e s               │
+// └───────────────────────────────────────────────────────────┘
+
+enum macro_custom_keycodes {
+  THE = MAKE_H + 1,
+};
+
+
+// ┌───────────────────────────────────────────────────────────┐
+// │ d e f i n e   c o m b o s                                 │
+// └───────────────────────────────────────────────────────────┘
+
+
+const uint16_t PROGMEM test_combo1[] = {KC_R, KC_T, COMBO_END};
+const uint16_t PROGMEM test_combo2[] = {KC_BSPC, KC_T, COMBO_END};
+// const uint16_t PROGMEM test_combo3[] = {KC_A, KC_E, COMBO_END};
+combo_t key_combos[] = {
+    COMBO(test_combo1, KC_ESC), // r+t = esc, rt freq. is 42nd
+    COMBO(test_combo2, THE), // backspace + t = the
+    // COMBO(test_combo3, KC_ENT), // a + e = enter, ea freq. is 35th
+    // because these bigrams are decently frequent, I need to have a pretty low COMBO_TERM or this will cause issues
+    // lets play around with it for a while, tweak, see if it is actually annoying. Maybe I won't even notice
+  
+
+    // COMBO(test_combo3, KC_QUOTE), // . + - = ' (it used to be shift + -, but this was always a pain point, lets try)
+    // COMBO(test_combo2, LCTL(KC_Z)), // keycodes with modifiers are possible too!
+};
+
+
+// ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+// │ T A P   D A N C E                                                                                                                          │
+// └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+// ▝▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▘
+
+// // Tap Dance keycodes
+// enum td_keycodes {
+//   RAISE_REPEAT
+// };
+//
+// // Define a type containing as many tapdance states as you need
+// typedef enum {
+//     TD_UNKNOWN,
+//     TD_SINGLE_TAP,
+//     TD_SINGLE_HOLD,
+// } td_state_t;
+//
+// // Create a global instance of the tapdance state type
+// static td_state_t td_state;
+//
+// // Declare your tapdance functions:
+//
+// // Function to determine the current tapdance state
+// td_state_t cur_dance(tap_dance_state_t *state);
+//
+// // `finished` and `reset` functions for each tapdance keycode
+// void raise_repeat_finished(tap_dance_state_t *state, void *user_data);
+// void raise_repeat_reset(tap_dance_state_t *state, void *user_data);
+//
+// // Determine the tapdance state to return
+// td_state_t cur_dance(tap_dance_state_t *state) {
+//     if (state->count == 1) {
+//         if (state->interrupted || !state->pressed) return TD_SINGLE_TAP;
+//         else return TD_SINGLE_HOLD;
+//     }
+//     else return TD_UNKNOWN; // Any number higher than the maximum state value you return above
+// }
+//
+// // Handle the possible states for each tapdance keycode you define:
+//
+// void raise_repeat_finished(tap_dance_state_t *state, void *user_data) {
+//     td_state = cur_dance(state);
+//     switch (td_state) {
+//         case TD_SINGLE_TAP:
+//             register_code16(KC_A);
+//             break;
+//         case TD_SINGLE_HOLD:
+//             // register_mods(MOD_BIT(KC_LALT)); // For a layer-tap key, use `layer_on(_MY_LAYER)` here
+//             layer_on(_RAISE);
+//             break;
+//         default:
+//             break;
+//     }
+// }
+//
+// void raise_repeat_reset(tap_dance_state_t *state, void *user_data) {
+//     switch (td_state) {
+//         case TD_SINGLE_TAP:
+//             unregister_code16(KC_A);
+//             break;
+//         case TD_SINGLE_HOLD:
+//             // unregister_mods(MOD_BIT(KC_LALT)); // For a layer-tap key, use `layer_off(_MY_LAYER)` here
+//             layer_off(_RAISE);
+//             break;
+//         default:
+//             break;
+//     }
+// }
+//
+// // Define `ACTION_TAP_DANCE_FN_ADVANCED()` for each tapdance keycode, passing in `finished` and `reset` functions
+// tap_dance_action_t tap_dance_actions[] = {
+//     [RAISE_REPEAT] = ACTION_TAP_DANCE_FN_ADVANCED(NULL, raise_repeat_finished, raise_repeat_reset)
+// };
+
+
+
 
 // ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
 // │ K E Y M A P S                                                                                                                              │
@@ -133,7 +241,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
               KC_B,     KC_L,     KC_D,     KC_W,     KC_Z,                          KC_UNDS,  KC_F,    KC_O,     KC_U,     KC_J,
     KC_TAB,   KC_N,     KC_R,     KC_T,     KC_S,     KC_G,                          KC_Y,     KC_H,     KC_A,     KC_E,     KC_I,  KC_COMM,
     KC_LSFT,  KC_Q,     KC_X,     KC_M,     KC_C,     KC_V,     KC_MUTE,   KC_MPLY,  KC_K,     KC_P,     KC_DOT,   KC_MINS,  KC_SLSH,  KC_RSFT,
-                                  KC_LCTL,  LOWER,    KC_SPC,   KC_LALT,   KC_BSPC,  KC_ENT,   RAISE,    KC_LGUI
+                                  KC_LCTL,  LOWER,    KC_SPC,   KC_LALT,   KC_BSPC,  KC_ENTER,   RAISE,    KC_LGUI
+                                  // KC_LCTL,  LOWER,    KC_SPC,   KC_LALT,   KC_BSPC,  KC_ENT,   TD(RAISE_REPEAT),    KC_LGUI
+                                  // KC_LCTL,  LOWER,    KC_SPC,   KC_LALT,   KC_BSPC,  KC_ENT,   QK_REPEAT_KEY,    KC_LGUI
  ),
 // maybe swap backspace and enter on the thumb (I feel like I use backspace a lot more than I use enter, but we'll see)
 
@@ -178,8 +288,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    [_LOWER] = LAYOUT(
  //╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷╷         ╷         ╷         ╷         ╷         ╷         ╷         ╷
               XXXXXXX,  KC_6,     KC_5,     KC_4,     XXXXXXX,                        KC_PIPE,  KC_END,  KC_PSCR,  XXXXXXX,  XXXXXXX,
-    KC_ESC,   KC_ASTR,  KC_3,     KC_2,     KC_1,     KC_0,                      KC_HOME,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RIGHT,  XXXXXXX,
-    KC_TILDE, XXXXXXX, KC_9,     KC_8,     KC_7,     XXXXXXX, KC_MUTE,   KC_MPLY,  KC_QUES,  KC_EXLM,   KC_EQUAL,  KC_PLUS,  XXXXXXX,   _______,
+    // KC_ESC,   KC_ASTR,  KC_3,     KC_2,     KC_1,     KC_0,                      KC_HOME,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RIGHT,  XXXXXXX,
+    // unbind for now to practice combos
+    LALT(KC_TAB),   KC_ASTR,  KC_3,     KC_2,     KC_1,     KC_0,                      KC_HOME,  KC_LEFT,  KC_DOWN,  KC_UP,    KC_RIGHT,  XXXXXXX,
+    KC_TILDE, XXXXXXX, KC_9,     KC_8,     KC_7,     TURBO, KC_MUTE,   KC_MPLY,  KC_QUES,  KC_EXLM,   KC_EQUAL,  KC_PLUS,  XXXXXXX,   _______,
                                   _______,  _______,  _______,  _______,   _______,  _______,  _______,  _______
  ),
  /*
@@ -667,14 +779,15 @@ bool oled_task_kb(void) {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case SHT_T:
-            return TAPPING_TERM - 150;
-        case SHT_N:
-            return TAPPING_TERM - 150;
+        // case SHT_T:
+        //     return TAPPING_TERM - 150;
+        // case SHT_N:
+        //     return TAPPING_TERM - 150;
         default:
             return TAPPING_TERM;
     }
 }
+
 
 
 // ┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
@@ -682,10 +795,88 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 // └────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 // ▝▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▘
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    if (!process_custom_shift_keys(keycode, record)) { return false; }
+// define some "training wheels" (print warnings) while I learn macros
+static const uint16_t SEQ_THE[]  = {KC_SPACE, KC_T, KC_H, KC_E, KC_SPACE };
 
+/* A rule = pattern + human-readable hint */
+typedef struct {
+    const uint16_t *pattern;
+    uint8_t         len;
+    const char     *hint;
+} tw_rule_t;
+
+#define RULE(pat, msg) { pat, (uint8_t)(sizeof(pat) / sizeof(pat[0])), msg }
+
+/* All rules in one table */
+static const tw_rule_t TRAINING_RULES[] = {
+    RULE(SEQ_THE,   "NOPE! use backspace + t"),
+};
+#define NUM_RULES (sizeof(TRAINING_RULES) / sizeof(TRAINING_RULES[0]))
+#define TW_MAX_LEN 4  /* longest pattern above */
+
+
+/* Circular buffer of recent presses (only key-downs, not releases) */
+static uint16_t tw_history[TW_MAX_LEN] = {0};
+static uint8_t  tw_hist_idx           = 0;   // next slot to overwrite
+
+/* Push a key into history and check rules.  Returns true if a rule hit. */
+static bool training_wheels_check(uint16_t keycode) {
+    /* 1. Record the press */
+    tw_history[tw_hist_idx] = keycode;
+    tw_hist_idx = (tw_hist_idx + 1) % TW_MAX_LEN;
+
+    /* 2. Test every rule */
+    for (uint8_t r = 0; r < NUM_RULES; ++r) {
+        const tw_rule_t *rule = &TRAINING_RULES[r];
+        bool match = true;
+
+        /* Compare newest-to-oldest */
+        for (uint8_t i = 0; i < rule->len; ++i) {
+            /* Convert “i from the end” into a circular index */
+            uint8_t idx = (tw_hist_idx + TW_MAX_LEN - rule->len + i) % TW_MAX_LEN;
+            if (tw_history[idx] != rule->pattern[i]) {
+                match = false;
+                break;
+            }
+        }
+
+        if (match) {
+            SEND_STRING(rule->hint);
+            // actually instead of a custom hint, just delete the text lol
+            for (uint8_t i = 0; i < rule->len; ++i) {
+                tap_code(KC_BSPC);
+            }
+            return true;
+        }
+    }
+    return false;
+}
+
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    // if (!process_record_custom_shift_keys(keycode, record)) { return false; }
+
+    // check if I accidentally typed one of my macros, and force some text out!
+    // only consider key-press events (not releases)
+    if (record->event.pressed) {
+        training_wheels_check(keycode);
+    }
+
+    // https://github.com/precondition/qmk_firmware/blob/mod-tap-combos/keyboards/handwired/dactyl_manuform/5x6/keymaps/precondition/combos.c#L139
+    // mod_state = get_mods();
+    const uint8_t mod_state = get_mods();
     switch (keycode) {
+        case THE:
+          if (record->event.pressed) {
+            if (mod_state & MOD_MASK_SHIFT) {
+              del_mods(MOD_MASK_SHIFT);
+              SEND_STRING("The");
+              set_mods(mod_state);
+            } else {
+              SEND_STRING("the");
+            }
+          }
+          return false;
 
         case OS_SWAP:
             if (record->event.pressed) {
@@ -708,7 +899,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             clear_keyboard();  // ──── clear to prevent stuck keys
             return false;
           }
-
 
 // ┌───────────────────────────────────────────────────────────┐
 // │ l a y e r                                                 │
