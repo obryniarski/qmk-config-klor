@@ -840,10 +840,12 @@ static bool training_wheels_check(uint16_t keycode) {
             }
         }
 
+
+
         if (match) {
-            SEND_STRING(rule->hint);
+            // SEND_STRING(rule->hint);
             // actually instead of a custom hint, just delete the text lol
-            for (uint8_t i = 0; i < rule->len; ++i) {
+            for (uint8_t i = 0; i < rule->len - 1; ++i) {
                 tap_code(KC_BSPC);
             }
             return true;
