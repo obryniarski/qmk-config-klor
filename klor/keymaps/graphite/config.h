@@ -27,7 +27,7 @@ for more options.
 
 // combo settings
 #define COMBO_COUNT 2
-#define COMBO_TERM 40
+#define COMBO_TERM 30
 
 // mouse TURBOOOOO haha
 #define MOUSE_TURBO_CLICK_PERIOD 50
