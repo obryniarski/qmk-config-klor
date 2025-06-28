@@ -125,7 +125,7 @@ const uint16_t PROGMEM test_combo2[] = {KC_BSPC, KC_T, COMBO_END};
 // const uint16_t PROGMEM test_combo3[] = {KC_A, KC_E, COMBO_END};
 combo_t key_combos[] = {
     COMBO(test_combo1, KC_ESC), // r+t = esc, rt freq. is 42nd
-    COMBO(test_combo2, THE), // backspace + t = the
+    // COMBO(test_combo2, THE), // backspace + t = the
     // COMBO(test_combo3, KC_ENT), // a + e = enter, ea freq. is 35th
     // because these bigrams are decently frequent, I need to have a pretty low COMBO_TERM or this will cause issues
     // lets play around with it for a while, tweak, see if it is actually annoying. Maybe I won't even notice
@@ -796,7 +796,7 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 // ▝▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▘
 
 // define some "training wheels" (print warnings) while I learn macros
-static const uint16_t SEQ_THE[]  = {KC_SPACE, KC_T, KC_H, KC_E, KC_SPACE };
+// static const uint16_t SEQ_THE[]  = {KC_SPACE, KC_T, KC_H, KC_E, KC_SPACE };
 
 /* A rule = pattern + human-readable hint */
 typedef struct {
@@ -809,7 +809,7 @@ typedef struct {
 
 /* All rules in one table */
 static const tw_rule_t TRAINING_RULES[] = {
-    RULE(SEQ_THE,   "NOPE! use backspace + t"),
+    // RULE(SEQ_THE,   "NOPE! use backspace + t"),
 };
 #define NUM_RULES (sizeof(TRAINING_RULES) / sizeof(TRAINING_RULES[0]))
 #define TW_MAX_LEN 4  /* longest pattern above */
@@ -1003,10 +1003,17 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 // └───────────────────────────────────────────────────────────┘
 
     } else if (index == 1) {
+        // if (clockwise) {
+        //     tap_code(KC_PGUP);
+        // } else {
+        //     tap_code(KC_PGDN);
+        // }
+
+        // see here for more info on mouse stuff: https://docs.qmk.fm/features/mouse_keys
         if (clockwise) {
-            tap_code(KC_PGUP);
+            tap_code(QK_MOUSE_WHEEL_UP);
         } else {
-            tap_code(KC_PGDN);
+            tap_code(QK_MOUSE_WHEEL_DOWN);
         }
     }
     return false;
